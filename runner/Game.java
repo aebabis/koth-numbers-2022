@@ -5,11 +5,6 @@ import java.util.concurrent.*;
 import bot.*;
 
 public class Game {
-    private static final String RED = "\u001b[31m";
-    private static final String GREEN = "\u001b[33m";
-    private static final String GRAY = "\u001b[38;5;242m";
-    private static final String RESET = "\u001b[0m";
-
     private Bot[] bots;
     private boolean[] alive;
     private List<Round> rounds;
@@ -87,21 +82,21 @@ public class Game {
         for (int b = 0; b < bots.length; b++) {
             String name = String.format("%-20s   ", bots[b].toString());
             if (alive[b])
-                sb.append(GREEN);
+                sb.append(Colors.SURVIVOR);
             sb.append(name);
             for (Round round : rounds) {
                 int move = round.getMoves()[b];
                 if (move == 0) {
-                    sb.append(GRAY + "   -");
+                    sb.append(Colors.GRAY + "   -");
                 } else {
                     String text = String.format(" %3d", round.getMoves()[b]);
                     if (round.getLosingMoves().contains(move))
-                        sb.append(RED + text + RESET);
+                        sb.append(Colors.RED + text + Colors.RESET);
                     else
                         sb.append(text);
                 }
             }
-            sb.append(RESET);
+            sb.append(Colors.RESET);
             sb.append("\n");
         }
         return sb.toString();
