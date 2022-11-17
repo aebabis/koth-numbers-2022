@@ -1,7 +1,6 @@
 package runner;
 
 import java.util.*;
-import bot.*;
 
 public class Round {
     private int[] moves;
