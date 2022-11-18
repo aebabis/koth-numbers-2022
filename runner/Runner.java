@@ -56,7 +56,7 @@ public class Runner {
     public static void main(String args[]) {
         Bot[] bots = {
             new GreedyBot(),
-            new CarefulBot(),
+            new YourMomBot(),
             new BabisBot(),
             new LessGreedyBot(),
             new RandomBot(),
