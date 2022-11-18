@@ -5,7 +5,7 @@ import runner.*;
 public class BrianBot extends Bot {
     protected int _getMove(Game game) {
         int theNumber = (int) (Math.random() * game.getNumAlive()) - 1;
-
+    
         if (theNumber == 0){
             theNumber = (int) (Math.random() * game.getNumAlive()) - 1;
         }
