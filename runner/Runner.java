@@ -1,10 +1,17 @@
 package runner;
 
+import java.util.*;
 import bot.*;
 
 public class Runner {
+    private static final String WINNER = "\u001b[32;1m";
+    private static final String BLUE = "\u001b[34m";
+    private static final String GRAY = "\u001b[38;5;242m";
+    private static final String RESET = "\u001b[0m";
+
     private Bot[] bots;
     private int[] scores;
+    private List<int[]> history;
 
     public Runner(Bot[] bots) {
         this.bots = bots.clone();
@@ -21,10 +28,10 @@ public class Runner {
             String name = String.format("%-20s   ", bots[b].toString());
             String text = String.format(" %3d", scores[b]);
             if (scores[b] == topScore)
-                sb.append(Colors.WINNER);
+                sb.append(WINNER);
             sb.append(name);
             sb.append(text);
-            sb.append(Colors.RESET);
+            sb.append(RESET);
             sb.append("\n");
         }
         return sb.toString();
@@ -32,7 +39,7 @@ public class Runner {
 
     private void playTournament() {
         for (int gameNum = 1; gameNum <= 100; gameNum++) {
-            System.out.println(Colors.GRAY+"GAME " + gameNum+Colors.RESET);
+            System.out.println(GRAY+"GAME " + gameNum+RESET);
             Game game = new Game(bots);
             game.play();
             System.out.println(game.getHistoryString());
@@ -40,7 +47,7 @@ public class Runner {
                 scores[winner]++;
         }
 
-        System.out.println(Colors.BLUE+"FINAL STANDINGS"+Colors.RESET);
+        System.out.println(BLUE+"FINAL STANDINGS"+RESET);
         System.out.println(getStandingString());
     }
 
@@ -56,11 +63,12 @@ public class Runner {
     public static void main(String args[]) {
         Bot[] bots = {
             new GreedyBot(),
-            new YourMomBot(),
+            new CarefulBot(),
             new BabisBot(),
             new LessGreedyBot(),
             new RandomBot(),
-            new CopyCat()
+            new CopyCat(),
+            new TensBot(),
         };
         shuffle(bots);
         Runner runner = new Runner(bots);
