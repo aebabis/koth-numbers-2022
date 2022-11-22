@@ -7,10 +7,6 @@ public class BrianBot extends Bot {
         int theNumber = 4;
 
         if (game.getNumRounds() > 0){
-            if (theNumber > 10){
-            theNumber -= game.getNumAlive();
-            }
-
             theNumber--;
         }
 
