@@ -9,6 +9,6 @@ public class AndrewBot extends Bot {
 	  if(numAlive >= 5) {
     	  return (int)(Math.random()*5)+3;
       }
-      return 1;
+      return (int)(Math.random()*2)+1;
     }
 }
