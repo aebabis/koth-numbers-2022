@@ -1,6 +1,5 @@
 package bot;
 
-import java.util.*;
 import runner.*;
 
 public abstract class Bot {
