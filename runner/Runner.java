@@ -37,8 +37,8 @@ public class Runner {
         return sb.toString();
     }
 
-    private void playTournament() {
-        for (int gameNum = 1; gameNum <= 100; gameNum++) {
+    private void playTournament(int rounds) {
+        for (int gameNum = 1; gameNum <= rounds; gameNum++) {
             System.out.println(GRAY+"GAME " + gameNum+RESET);
             Game game = new Game(bots);
             game.play();
@@ -61,6 +61,10 @@ public class Runner {
     }
 
     public static void main(String args[]) {
+        int numRounds = 100;
+        if (args.length > 0)
+            numRounds = Integer.parseInt(args[0]);
+
         Bot[] bots = {
             new AndrewBot(),
             new AndrewSaboBot(),
@@ -79,6 +83,6 @@ public class Runner {
         };
         shuffle(bots);
         Runner runner = new Runner(bots);
-        runner.playTournament();
+        runner.playTournament(numRounds);
     }
 }
