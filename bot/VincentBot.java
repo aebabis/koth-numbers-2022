@@ -4,12 +4,18 @@ import runner.*;
 
 public class VincentBot extends Bot{
     protected int _getMove(Game game) {
-    	int dif = game.getNumBots() - game.getNumAlive();
-    	if(dif >0 && dif <=5) {
-    		dif= dif *2 + 1;
+    	int alive = game.getNumAlive();
+    	double rndm = Math.random()  +.1;
+    	int rounds = (int) (Math.ceil(0.25 * game.getNumRounds()));
+    	
+    	if(alive <= 1) {
+    		alive = (int)  (rndm * 2 + 2) ^2;
+    	} else if (alive <10) {
+    		alive = (int) (alive * rndm + alive);
     	} else {
-    		dif =3;
+    		alive = (int) (Math.sqrt(rndm * alive * alive));
     	}
-    	return (int) (dif + dif * 0.5 * game.getNumRounds());
+    	
+    	return alive + rounds;
     }
 }

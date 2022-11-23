@@ -70,7 +70,9 @@ public class Runner {
             new CopyCat(),
             new TensBot(),
             new GaryBot(),
-            new BrianBot()
+            new BrianBot(),
+            new WahBot(),
+            new VincentBot()
         };
         shuffle(bots);
         Runner runner = new Runner(bots);
