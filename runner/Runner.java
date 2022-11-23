@@ -71,7 +71,8 @@ public class Runner {
             new TensBot(),
             new GaryBot(),
             new BrianBot(),
-            new WahBot()
+            new WahBot(),
+            new VincentBot()
         };
         shuffle(bots);
         Runner runner = new Runner(bots);
