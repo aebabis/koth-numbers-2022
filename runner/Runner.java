@@ -68,15 +68,7 @@ public class Runner {
             new LessGreedyBot(),
             new RandomBot(),
             new CopyCat(),
-            new TensBot(),
-            new GaryBot(),
-            new BrianBot(),
-            new AndrewBot(),
-            new WahBot(),
-            new TensBot(),
-            new VincentBot(),
-            new YourMomBot(),
-            new AndrewSaboBot()
+            new VincentBot()
         };
         shuffle(bots);
         Runner runner = new Runner(bots);
