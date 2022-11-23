@@ -62,17 +62,20 @@ public class Runner {
 
     public static void main(String args[]) {
         Bot[] bots = {
-            new GreedyBot(),
-            new CarefulBot(),
+            new AndrewBot(),
+            new AndrewSaboBot(),
             new BabisBot(),
+            new BrianBot(),
+            new CarefulBot(),
+            new CopyCat(),
+            new GaryBot(),
+            new GreedyBot(),
             new LessGreedyBot(),
             new RandomBot(),
-            new CopyCat(),
             new TensBot(),
-            new GaryBot(),
-            new BrianBot(),
+            new VincentBot(),
             new WahBot(),
-            new VincentBot()
+            new YourMomBot(),
         };
         shuffle(bots);
         Runner runner = new Runner(bots);
